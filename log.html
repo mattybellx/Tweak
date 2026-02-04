@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tweak Diagnostics Logs</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        background: #0a0d16;
+        color: #e6ebff;
+      }
+      body {
+        margin: 0;
+        padding: 16px;
+      }
+      h1 {
+        font-size: 16px;
+        margin: 0 0 12px 0;
+      }
+      #log {
+        background: rgba(9, 12, 20, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 12px;
+        height: calc(100vh - 80px);
+        overflow: auto;
+        white-space: pre-wrap;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Live Debug Log</h1>
+    <div id="log"></div>
+    <script>
+      const logEl = document.getElementById('log');
+      const addEntry = (entry) => {
+        const line = document.createElement('div');
+        line.textContent = entry;
+        logEl.appendChild(line);
+        logEl.scrollTop = logEl.scrollHeight;
+      };
+      if (window.logApi?.onLog) {
+        window.logApi.onLog((entry) => addEntry(entry));
+      } else {
+        addEntry('Log API not available.');
+      }
+    </script>
+  </body>
+</html>
