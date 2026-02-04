@@ -1,0 +1,9 @@
+{
+  "engine": "llama.cpp",
+  "modelPath": "C:\\Users\\matth\\OneDrive\\Desktop\\Tweak\\models\\qwen2.5-coder-14b-q8_0.gguf",
+  "binaryPath": "C:\\Users\\matth\\OneDrive\\Desktop\\Tweak\\bin\\llama-cli.exe",
+  "modelDownloadUrl": "",
+  "contextTokens": 4096,
+  "temperature": 0.2,
+  "maxTokens": 500
+}
